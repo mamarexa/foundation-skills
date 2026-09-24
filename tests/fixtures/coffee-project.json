@@ -1,0 +1,241 @@
+{
+  "format": "foundation-project",
+  "version": 1,
+  "name": "Corner Caf\u00e9, Leeds",
+  "businessType": "coffee-shop",
+  "currency": "GBP",
+  "activeCapexCategories": [
+    "leasehold-improvements",
+    "kitchen-equipment",
+    "furniture-fixtures",
+    "pos-setup",
+    "signage-branding",
+    "initial-inventory"
+  ],
+  "activeOpexCategories": [
+    "raw-materials",
+    "rent-lease",
+    "maintenance",
+    "payment-processing",
+    "marketing",
+    "admin"
+  ],
+  "overview": {
+    "productName": "Specialty coffee & bakery counter",
+    "employment": 5
+  },
+  "lineItems": {
+    "leasehold-improvements": [
+      {
+        "description": "Fit-out",
+        "notes": "[quote] contractor estimate",
+        "cost": 38000
+      }
+    ],
+    "kitchen-equipment": [
+      {
+        "description": "Espresso machine, 2-group",
+        "notes": "[quote]",
+        "qty": 1,
+        "unitCost": 9500
+      },
+      {
+        "description": "Grinders",
+        "notes": "[quote]",
+        "qty": 2,
+        "unitCost": 1400
+      },
+      {
+        "description": "Oven, fridges, dishwasher",
+        "notes": "[estimate]",
+        "qty": 1,
+        "unitCost": 11000
+      }
+    ],
+    "furniture-fixtures": [
+      {
+        "description": "Seating for 30",
+        "notes": "[estimate]",
+        "qty": 30,
+        "unitCost": 180
+      }
+    ],
+    "pos-setup": [
+      {
+        "description": "POS + card terminals",
+        "notes": "[quote]",
+        "cost": 1800
+      }
+    ],
+    "signage-branding": [
+      {
+        "description": "Signage and brand identity",
+        "notes": "[estimate]",
+        "cost": 4500
+      }
+    ],
+    "initial-inventory": [
+      {
+        "material": "Opening stock",
+        "notes": "[estimate]",
+        "qty": 1,
+        "unit": "lot",
+        "unitCost": 3500
+      }
+    ],
+    "pre-operational": [
+      {
+        "description": "Deposit, legal, licences, recruitment",
+        "notes": "[estimate]",
+        "cost": 12000
+      }
+    ],
+    "human-resources": [
+      {
+        "role": "Manager",
+        "notes": "[benchmark]",
+        "headcount": 1,
+        "monthlySalary": 2600,
+        "employerBurdenPct": 16
+      },
+      {
+        "role": "Barista",
+        "notes": "[benchmark]",
+        "headcount": 4,
+        "monthlySalary": 2100,
+        "employerBurdenPct": 16
+      }
+    ],
+    "raw-materials": [
+      {
+        "material": "Coffee, milk, bakery",
+        "notes": "[benchmark] ~30% of sales",
+        "monthlyQty": 1,
+        "unit": "month",
+        "unitCost": 13500
+      }
+    ],
+    "rent-lease": [
+      {
+        "description": "Shop lease 85 m\u00b2",
+        "notes": "[quote]",
+        "monthlyCost": 2550
+      }
+    ],
+    "maintenance": [
+      {
+        "description": "Equipment servicing",
+        "notes": "[estimate]",
+        "monthlyCost": 150
+      }
+    ],
+    "payment-processing": [
+      {
+        "description": "Card fees",
+        "notes": "[quote] 1.4%",
+        "feeBasisAmount": 45000,
+        "feePct": 1.4
+      }
+    ],
+    "marketing": [
+      {
+        "description": "Local marketing",
+        "notes": "[estimate]",
+        "monthlyCost": 600
+      }
+    ],
+    "admin": [
+      {
+        "description": "Insurance, utilities, accounting",
+        "notes": "[estimate]",
+        "monthlyCost": 1400
+      }
+    ],
+    "revenue": [
+      {
+        "product": "Coffee & drinks",
+        "notes": "[estimate]",
+        "pricingMode": "unit",
+        "unitPrice": 3.6,
+        "monthlyVolume": 9000,
+        "startMonth": 2
+      },
+      {
+        "product": "Bakery & food",
+        "notes": "[estimate]",
+        "pricingMode": "unit",
+        "unitPrice": 4.2,
+        "monthlyVolume": 3000,
+        "startMonth": 2
+      }
+    ]
+  },
+  "assumptions": {
+    "taxRatePct": 25,
+    "discountRatePct": 18,
+    "revenueGrowthPct": 4,
+    "workingCapitalMonths": 3,
+    "projectionYears": 5
+  },
+  "competitorBenchmark": {
+    "features": [
+      {
+        "id": "f1",
+        "name": "Specialty beans"
+      },
+      {
+        "id": "f2",
+        "name": "Fresh bakery"
+      },
+      {
+        "id": "f3",
+        "name": "Seating"
+      },
+      {
+        "id": "f4",
+        "name": "Open 7am"
+      },
+      {
+        "id": "f5",
+        "name": "Oat milk free"
+      }
+    ],
+    "competitors": [
+      {
+        "id": "c0",
+        "name": "Us (planned)",
+        "has": [
+          "f1",
+          "f2",
+          "f3",
+          "f4",
+          "f5"
+        ]
+      },
+      {
+        "id": "c1",
+        "name": "Chain caf\u00e9 A",
+        "has": [
+          "f2",
+          "f3",
+          "f4"
+        ]
+      },
+      {
+        "id": "c2",
+        "name": "Station kiosk",
+        "has": [
+          "f4"
+        ]
+      },
+      {
+        "id": "c3",
+        "name": "Indie roaster",
+        "has": [
+          "f1",
+          "f3"
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,726 @@
+{
+  "currency": "GBP",
+  "project": {
+    "businessType": "coffee-shop",
+    "currency": "GBP",
+    "activeCapexCategories": [
+      "leasehold-improvements",
+      "kitchen-equipment",
+      "furniture-fixtures",
+      "pos-setup",
+      "signage-branding",
+      "initial-inventory"
+    ],
+    "activeOpexCategories": [
+      "raw-materials",
+      "rent-lease",
+      "maintenance",
+      "payment-processing",
+      "marketing",
+      "admin"
+    ],
+    "overview": {
+      "productName": "Specialty coffee & bakery counter",
+      "proposedCapacity": "",
+      "applications": "",
+      "mainRawMaterial": "",
+      "employment": 5,
+      "landRequiredSqm": 0,
+      "buildingAdminSqm": 0,
+      "buildingProductionSqm": 0,
+      "buildingOtherSqm": 0,
+      "waterConsumptionLitH": 0,
+      "electricityConsumptionKw": 0,
+      "gasConsumptionM3H": 0,
+      "icsCode": "",
+      "tariffCode": "",
+      "technicalSpecs": [
+        {
+          "id": "spec-1",
+          "label": "",
+          "value": ""
+        }
+      ]
+    },
+    "lineItems": {
+      "pre-operational": [
+        {
+          "description": "Deposit, legal, licences, recruitment",
+          "notes": "[estimate]",
+          "cost": 12000,
+          "id": "import-pre-operational-8"
+        }
+      ],
+      "human-resources": [
+        {
+          "role": "Manager",
+          "notes": "[benchmark]",
+          "headcount": 1,
+          "monthlySalary": 2600,
+          "employerBurdenPct": 16,
+          "id": "import-human-resources-9"
+        },
+        {
+          "role": "Barista",
+          "notes": "[benchmark]",
+          "headcount": 4,
+          "monthlySalary": 2100,
+          "employerBurdenPct": 16,
+          "id": "import-human-resources-10"
+        }
+      ],
+      "revenue": [
+        {
+          "product": "Coffee & drinks",
+          "notes": "[estimate]",
+          "pricingMode": "unit",
+          "unitPrice": 3.6,
+          "monthlyVolume": 9000,
+          "startMonth": 2,
+          "id": "import-revenue-17"
+        },
+        {
+          "product": "Bakery & food",
+          "notes": "[estimate]",
+          "pricingMode": "unit",
+          "unitPrice": 4.2,
+          "monthlyVolume": 3000,
+          "startMonth": 2,
+          "id": "import-revenue-18"
+        }
+      ],
+      "leasehold-improvements": [
+        {
+          "description": "Fit-out",
+          "notes": "[quote] contractor estimate",
+          "cost": 38000,
+          "id": "import-leasehold-improvements-0"
+        }
+      ],
+      "kitchen-equipment": [
+        {
+          "description": "Espresso machine, 2-group",
+          "notes": "[quote]",
+          "qty": 1,
+          "unitCost": 9500,
+          "id": "import-kitchen-equipment-1"
+        },
+        {
+          "description": "Grinders",
+          "notes": "[quote]",
+          "qty": 2,
+          "unitCost": 1400,
+          "id": "import-kitchen-equipment-2"
+        },
+        {
+          "description": "Oven, fridges, dishwasher",
+          "notes": "[estimate]",
+          "qty": 1,
+          "unitCost": 11000,
+          "id": "import-kitchen-equipment-3"
+        }
+      ],
+      "furniture-fixtures": [
+        {
+          "description": "Seating for 30",
+          "notes": "[estimate]",
+          "qty": 30,
+          "unitCost": 180,
+          "id": "import-furniture-fixtures-4"
+        }
+      ],
+      "pos-setup": [
+        {
+          "description": "POS + card terminals",
+          "notes": "[quote]",
+          "cost": 1800,
+          "id": "import-pos-setup-5"
+        }
+      ],
+      "signage-branding": [
+        {
+          "description": "Signage and brand identity",
+          "notes": "[estimate]",
+          "cost": 4500,
+          "id": "import-signage-branding-6"
+        }
+      ],
+      "initial-inventory": [
+        {
+          "material": "Opening stock",
+          "notes": "[estimate]",
+          "qty": 1,
+          "unit": "lot",
+          "unitCost": 3500,
+          "id": "import-initial-inventory-7"
+        }
+      ],
+      "raw-materials": [
+        {
+          "material": "Coffee, milk, bakery",
+          "notes": "[benchmark] ~30% of sales",
+          "monthlyQty": 1,
+          "unit": "month",
+          "unitCost": 13500,
+          "id": "import-raw-materials-11"
+        }
+      ],
+      "rent-lease": [
+        {
+          "description": "Shop lease 85 m²",
+          "notes": "[quote]",
+          "monthlyCost": 2550,
+          "id": "import-rent-lease-12"
+        }
+      ],
+      "maintenance": [
+        {
+          "description": "Equipment servicing",
+          "notes": "[estimate]",
+          "monthlyCost": 150,
+          "id": "import-maintenance-13"
+        }
+      ],
+      "payment-processing": [
+        {
+          "description": "Card fees",
+          "notes": "[quote] 1.4%",
+          "feeBasisAmount": 45000,
+          "feePct": 1.4,
+          "id": "import-payment-processing-14"
+        }
+      ],
+      "marketing": [
+        {
+          "description": "Local marketing",
+          "notes": "[estimate]",
+          "monthlyCost": 600,
+          "id": "import-marketing-15"
+        }
+      ],
+      "admin": [
+        {
+          "description": "Insurance, utilities, accounting",
+          "notes": "[estimate]",
+          "monthlyCost": 1400,
+          "id": "import-admin-16"
+        }
+      ]
+    },
+    "ingredients": [],
+    "recipes": [],
+    "contingencyPct": 10,
+    "costSplit": [
+      {
+        "id": "human-resources",
+        "label": "Human Resources",
+        "fixedPct": 100
+      },
+      {
+        "id": "raw-materials",
+        "label": "Raw Materials & Components",
+        "fixedPct": 0
+      },
+      {
+        "id": "rent-lease",
+        "label": "Rent / Lease",
+        "fixedPct": 100
+      },
+      {
+        "id": "maintenance",
+        "label": "Maintenance & Repairs",
+        "fixedPct": 0
+      },
+      {
+        "id": "payment-processing",
+        "label": "Payment Processing & POS Fees",
+        "fixedPct": 0
+      },
+      {
+        "id": "marketing",
+        "label": "Marketing & Customer Acquisition",
+        "fixedPct": 100
+      },
+      {
+        "id": "admin",
+        "label": "Administrative & Overhead",
+        "fixedPct": 100
+      },
+      {
+        "id": "energy",
+        "label": "Energy",
+        "fixedPct": 0
+      },
+      {
+        "id": "depreciation",
+        "label": "Depreciation",
+        "fixedPct": 100
+      },
+      {
+        "id": "contingency",
+        "label": "Unforeseen costs (opex)",
+        "fixedPct": 50
+      }
+    ],
+    "assumptions": {
+      "depreciationYearsOverride": {},
+      "operatingHoursPerYear": 2400,
+      "electricityTariffRialPerKwh": 0,
+      "waterTariffRialPerLitre": 0,
+      "gasTariffRialPerM3": 0,
+      "opexContingencyPct": 6,
+      "workingCapitalMonths": 3,
+      "discountRatePct": 18,
+      "revenueGrowthPct": 4,
+      "projectionYears": 5,
+      "taxRatePct": 25,
+      "customerChurnPct": 0
+    },
+    "projectDescription": "",
+    "businessPlan": "",
+    "competitorBenchmark": {
+      "features": [
+        {
+          "id": "f1",
+          "name": "Specialty beans"
+        },
+        {
+          "id": "f2",
+          "name": "Fresh bakery"
+        },
+        {
+          "id": "f3",
+          "name": "Seating"
+        },
+        {
+          "id": "f4",
+          "name": "Open 7am"
+        },
+        {
+          "id": "f5",
+          "name": "Oat milk free"
+        }
+      ],
+      "competitors": [
+        {
+          "id": "c0",
+          "name": "Us (planned)",
+          "has": [
+            "f1",
+            "f2",
+            "f3",
+            "f4",
+            "f5"
+          ]
+        },
+        {
+          "id": "c1",
+          "name": "Chain café A",
+          "has": [
+            "f2",
+            "f3",
+            "f4"
+          ]
+        },
+        {
+          "id": "c2",
+          "name": "Station kiosk",
+          "has": [
+            "f4"
+          ]
+        },
+        {
+          "id": "c3",
+          "name": "Indie roaster",
+          "has": [
+            "f1",
+            "f3"
+          ]
+        }
+      ]
+    }
+  },
+  "results": {
+    "capex": {
+      "byCategory": {
+        "pre-operational": 12000,
+        "leasehold-improvements": 38000,
+        "kitchen-equipment": 23300,
+        "furniture-fixtures": 5400,
+        "pos-setup": 1800,
+        "signage-branding": 4500,
+        "initial-inventory": 3500
+      },
+      "subtotal": 88500,
+      "contingency": 8850,
+      "total": 97350
+    },
+    "opex": {
+      "byCategory": {
+        "human-resources": 153120,
+        "raw-materials": 162000,
+        "rent-lease": 30600,
+        "maintenance": 1800,
+        "payment-processing": 7559.999999999998,
+        "marketing": 7200,
+        "admin": 16800
+      },
+      "energy": 0,
+      "depreciation": 9160,
+      "contingency": 23294.399999999998,
+      "total": 411534.4,
+      "fixedTotal": 228527.2,
+      "variableTotal": 183007.2
+    },
+    "revenue": 450000,
+    "workingCapital": 102883.6,
+    "totalInvestment": 200233.6,
+    "peakFundingRequirement": 200233.6,
+    "peakFundingYear": 0,
+    "preTaxProfit": 38465.59999999998,
+    "tax": 9616.399999999994,
+    "netProfit": 28849.199999999983,
+    "profitMarginPct": 6.41093333333333,
+    "roiPct": 14.40777172262796,
+    "breakEvenRevenue": 345678.36662252015,
+    "breakEvenUnits": 92180.89776600538,
+    "simplePaybackYears": 2.763361710566816,
+    "projection": [
+      {
+        "year": 1,
+        "revenue": 450000,
+        "fixedCost": 228527.2,
+        "variableCost": 183007.2,
+        "netProfit": 28849.199999999983,
+        "netCashFlow": 38009.19999999998,
+        "cumulativeCashFlow": -162224.40000000002
+      },
+      {
+        "year": 2,
+        "revenue": 561600,
+        "fixedCost": 228527.2,
+        "variableCost": 228392.9856,
+        "netProfit": 78509.86079999998,
+        "netCashFlow": 87669.86079999998,
+        "cumulativeCashFlow": -74554.53920000004
+      },
+      {
+        "year": 3,
+        "revenue": 584064.0000000001,
+        "fixedCost": 228527.2,
+        "variableCost": 237528.70502400005,
+        "netProfit": 88506.07123200006,
+        "netCashFlow": 97666.07123200006,
+        "cumulativeCashFlow": 23111.532032000017
+      },
+      {
+        "year": 4,
+        "revenue": 607426.56,
+        "fixedCost": 228527.2,
+        "variableCost": 247029.85322496004,
+        "netProfit": 98902.13008128,
+        "netCashFlow": 108062.13008128,
+        "cumulativeCashFlow": 131173.66211328004
+      },
+      {
+        "year": 5,
+        "revenue": 631723.6224000001,
+        "fixedCost": 228527.2,
+        "variableCost": 256911.04735395845,
+        "netProfit": 109714.03128453121,
+        "netCashFlow": 118874.03128453121,
+        "cumulativeCashFlow": 250047.69339781126
+      }
+    ],
+    "npv": 62081.480757774116,
+    "irrPct": 28.936875658032022,
+    "saasMetrics": null
+  },
+  "scenarios": {
+    "worst": {
+      "capex": {
+        "byCategory": {
+          "pre-operational": 12000,
+          "leasehold-improvements": 38000,
+          "kitchen-equipment": 23300,
+          "furniture-fixtures": 5400,
+          "pos-setup": 1800,
+          "signage-branding": 4500,
+          "initial-inventory": 3500
+        },
+        "subtotal": 88500,
+        "contingency": 8850,
+        "total": 97350
+      },
+      "opex": {
+        "byCategory": {
+          "human-resources": 153120,
+          "raw-materials": 162000,
+          "rent-lease": 30600,
+          "maintenance": 1800,
+          "payment-processing": 7559.999999999998,
+          "marketing": 7200,
+          "admin": 16800
+        },
+        "energy": 0,
+        "depreciation": 9160,
+        "contingency": 23294.399999999998,
+        "total": 411534.4,
+        "fixedTotal": 228527.2,
+        "variableTotal": 183007.2
+      },
+      "revenue": 450000,
+      "workingCapital": 102883.6,
+      "totalInvestment": 200233.6,
+      "peakFundingRequirement": 200233.6,
+      "peakFundingYear": 0,
+      "preTaxProfit": 38465.59999999998,
+      "tax": 9616.399999999994,
+      "netProfit": 28849.199999999983,
+      "profitMarginPct": 6.41093333333333,
+      "roiPct": 14.40777172262796,
+      "breakEvenRevenue": 345678.36662252015,
+      "breakEvenUnits": 92180.89776600538,
+      "simplePaybackYears": 2.9042274833640063,
+      "projection": [
+        {
+          "year": 1,
+          "revenue": 450000,
+          "fixedCost": 228527.2,
+          "variableCost": 183007.2,
+          "netProfit": 28849.199999999983,
+          "netCashFlow": 38009.19999999998,
+          "cumulativeCashFlow": -162224.40000000002
+        },
+        {
+          "year": 2,
+          "revenue": 550800,
+          "fixedCost": 228527.2,
+          "variableCost": 224000.8128,
+          "netProfit": 73703.99039999998,
+          "netCashFlow": 82863.99039999998,
+          "cumulativeCashFlow": -79360.40960000004
+        },
+        {
+          "year": 3,
+          "revenue": 561816,
+          "fixedCost": 228527.2,
+          "variableCost": 228480.82905600002,
+          "netProfit": 78605.978208,
+          "netCashFlow": 87765.978208,
+          "cumulativeCashFlow": 8405.568607999958
+        },
+        {
+          "year": 4,
+          "revenue": 573052.3200000001,
+          "fixedCost": 228527.2,
+          "variableCost": 233050.44563712005,
+          "netProfit": 83606.00577216,
+          "netCashFlow": 92766.00577216,
+          "cumulativeCashFlow": 101171.57438015996
+        },
+        {
+          "year": 5,
+          "revenue": 584513.3663999999,
+          "fixedCost": 228527.2,
+          "variableCost": 237711.4545498624,
+          "netProfit": 88706.03388760313,
+          "netCashFlow": 97866.03388760313,
+          "cumulativeCashFlow": 199037.6082677631
+        }
+      ],
+      "npv": 7895.207845099794,
+      "irrPct": 24.618954320943878
+    },
+    "base": {
+      "capex": {
+        "byCategory": {
+          "pre-operational": 12000,
+          "leasehold-improvements": 38000,
+          "kitchen-equipment": 23300,
+          "furniture-fixtures": 5400,
+          "pos-setup": 1800,
+          "signage-branding": 4500,
+          "initial-inventory": 3500
+        },
+        "subtotal": 88500,
+        "contingency": 8850,
+        "total": 97350
+      },
+      "opex": {
+        "byCategory": {
+          "human-resources": 153120,
+          "raw-materials": 162000,
+          "rent-lease": 30600,
+          "maintenance": 1800,
+          "payment-processing": 7559.999999999998,
+          "marketing": 7200,
+          "admin": 16800
+        },
+        "energy": 0,
+        "depreciation": 9160,
+        "contingency": 23294.399999999998,
+        "total": 411534.4,
+        "fixedTotal": 228527.2,
+        "variableTotal": 183007.2
+      },
+      "revenue": 450000,
+      "workingCapital": 102883.6,
+      "totalInvestment": 200233.6,
+      "peakFundingRequirement": 200233.6,
+      "peakFundingYear": 0,
+      "preTaxProfit": 38465.59999999998,
+      "tax": 9616.399999999994,
+      "netProfit": 28849.199999999983,
+      "profitMarginPct": 6.41093333333333,
+      "roiPct": 14.40777172262796,
+      "breakEvenRevenue": 345678.36662252015,
+      "breakEvenUnits": 92180.89776600538,
+      "simplePaybackYears": 2.763361710566816,
+      "projection": [
+        {
+          "year": 1,
+          "revenue": 450000,
+          "fixedCost": 228527.2,
+          "variableCost": 183007.2,
+          "netProfit": 28849.199999999983,
+          "netCashFlow": 38009.19999999998,
+          "cumulativeCashFlow": -162224.40000000002
+        },
+        {
+          "year": 2,
+          "revenue": 561600,
+          "fixedCost": 228527.2,
+          "variableCost": 228392.9856,
+          "netProfit": 78509.86079999998,
+          "netCashFlow": 87669.86079999998,
+          "cumulativeCashFlow": -74554.53920000004
+        },
+        {
+          "year": 3,
+          "revenue": 584064.0000000001,
+          "fixedCost": 228527.2,
+          "variableCost": 237528.70502400005,
+          "netProfit": 88506.07123200006,
+          "netCashFlow": 97666.07123200006,
+          "cumulativeCashFlow": 23111.532032000017
+        },
+        {
+          "year": 4,
+          "revenue": 607426.56,
+          "fixedCost": 228527.2,
+          "variableCost": 247029.85322496004,
+          "netProfit": 98902.13008128,
+          "netCashFlow": 108062.13008128,
+          "cumulativeCashFlow": 131173.66211328004
+        },
+        {
+          "year": 5,
+          "revenue": 631723.6224000001,
+          "fixedCost": 228527.2,
+          "variableCost": 256911.04735395845,
+          "netProfit": 109714.03128453121,
+          "netCashFlow": 118874.03128453121,
+          "cumulativeCashFlow": 250047.69339781126
+        }
+      ],
+      "npv": 62081.480757774116,
+      "irrPct": 28.936875658032022
+    },
+    "best": {
+      "capex": {
+        "byCategory": {
+          "pre-operational": 12000,
+          "leasehold-improvements": 38000,
+          "kitchen-equipment": 23300,
+          "furniture-fixtures": 5400,
+          "pos-setup": 1800,
+          "signage-branding": 4500,
+          "initial-inventory": 3500
+        },
+        "subtotal": 88500,
+        "contingency": 8850,
+        "total": 97350
+      },
+      "opex": {
+        "byCategory": {
+          "human-resources": 153120,
+          "raw-materials": 162000,
+          "rent-lease": 30600,
+          "maintenance": 1800,
+          "payment-processing": 7559.999999999998,
+          "marketing": 7200,
+          "admin": 16800
+        },
+        "energy": 0,
+        "depreciation": 9160,
+        "contingency": 23294.399999999998,
+        "total": 411534.4,
+        "fixedTotal": 228527.2,
+        "variableTotal": 183007.2
+      },
+      "revenue": 450000,
+      "workingCapital": 102883.6,
+      "totalInvestment": 200233.6,
+      "peakFundingRequirement": 200233.6,
+      "peakFundingYear": 0,
+      "preTaxProfit": 38465.59999999998,
+      "tax": 9616.399999999994,
+      "netProfit": 28849.199999999983,
+      "profitMarginPct": 6.41093333333333,
+      "roiPct": 14.40777172262796,
+      "breakEvenRevenue": 345678.36662252015,
+      "breakEvenUnits": 92180.89776600538,
+      "simplePaybackYears": 2.647268977645043,
+      "projection": [
+        {
+          "year": 1,
+          "revenue": 450000,
+          "fixedCost": 228527.2,
+          "variableCost": 183007.2,
+          "netProfit": 28849.199999999983,
+          "netCashFlow": 38009.19999999998,
+          "cumulativeCashFlow": -162224.40000000002
+        },
+        {
+          "year": 2,
+          "revenue": 572400,
+          "fixedCost": 228527.2,
+          "variableCost": 232785.15840000001,
+          "netProfit": 83315.73119999998,
+          "netCashFlow": 92475.73119999998,
+          "cumulativeCashFlow": -69748.66880000004
+        },
+        {
+          "year": 3,
+          "revenue": 606744.0000000001,
+          "fixedCost": 228527.2,
+          "variableCost": 246752.26790400004,
+          "netProfit": 98598.39907200007,
+          "netCashFlow": 107758.39907200007,
+          "cumulativeCashFlow": 38009.73027200003
+        },
+        {
+          "year": 4,
+          "revenue": 643148.6400000001,
+          "fixedCost": 228527.2,
+          "variableCost": 261557.4039782401,
+          "netProfit": 114798.02701632002,
+          "netCashFlow": 123958.02701632002,
+          "cumulativeCashFlow": 161967.75728832005
+        },
+        {
+          "year": 5,
+          "revenue": 681737.5584000002,
+          "fixedCost": 228527.2,
+          "variableCost": 277250.8482169345,
+          "netProfit": 131969.6326372993,
+          "netCashFlow": 141129.6326372993,
+          "cumulativeCashFlow": 303097.38992561935
+        }
+      ],
+      "npv": 114635.48762946288,
+      "irrPct": 32.98998884174308
+    }
+  }
+}

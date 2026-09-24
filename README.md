@@ -15,8 +15,8 @@ feasibility consultant does for a client, run by your own AI agent.
 | [`feasibility-analyst`](feasibility-analyst/SKILL.md) | Turns a business description into a complete feasibility study: business type, cost categories, capex, opex, revenue model, assumptions, then reads the results and advises. | Ready for testing |
 | [`market-research`](market-research/SKILL.md) | Bottom-up TAM/SAM/SOM with a top-down cross-check, competitor profiles from public sources, the competitors × features grid written into Foundation, and a check of the revenue plan against the reachable market. | Ready for testing |
 | [`pricing-optimizer`](pricing-optimizer/SKILL.md) | Diagnoses pricing, builds a cost-floor → reference → value-ceiling corridor, designs 3–5 options and tests each through the engine with an explicit volume assumption. | Ready for testing |
-| business-plan-writer (.docx) | Writes the business plan as a Word file, grounded in the study's numbers. | Planned |
-| pitch-deck-writer (.pptx) | Builds the investor deck as a PowerPoint file. | Planned |
+| [`business-plan-writer`](business-plan-writer/SKILL.md) | Lender/investor-grade business plan as a **.docx**. Engine figures are filled in by the renderer, never retyped, and include tables, charts, scenarios and an assumptions appendix. | Ready for testing |
+| [`pitch-deck-writer`](pitch-deck-writer/SKILL.md) | Investor or lender deck as a **.pptx**: headline-driven storyline, engine-computed financial slides, the competitor grid, and visual QA of every slide. | Ready for testing |
 
 ## Two modes: connected and standalone
 
@@ -40,6 +40,16 @@ Settings → Capabilities → Skills.
 
 **Connecting Foundation (optional):** add the MCP server at `https://getfndtn.com/api/mcp` as a
 remote MCP connector. You sign in with your normal Foundation account.
+
+## Testing the document renderers
+
+```
+pip install python-docx python-pptx matplotlib
+python tests/test_scripts.py
+```
+
+The fixtures in `tests/fixtures/` hold a sample café project. Its `coffee-facts.json` is real
+output from Foundation's engine.
 
 ## Contributing
 

@@ -1,0 +1,115 @@
+{
+  "title": "Corner Caf\u00e9, Leeds",
+  "subtitle": "Business plan and feasibility study",
+  "kicker": "Business plan",
+  "prepared_by": "Prepared by the founders",
+  "date": "September 2026",
+  "confidentiality": "Confidential. Prepared for prospective lenders and investors.",
+  "sections": [
+    {
+      "heading": "Executive summary",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Corner Caf\u00e9 is a specialty coffee and bakery counter opening on a commuter route in central Leeds. It needs **{{results.totalInvestment|money}}** to open, including working capital, and reaches a run-rate net profit of {{results.projection.last.netProfit|money}} by Year {{results.projection.last.year|int}}."
+        },
+        {
+          "type": "kpis",
+          "items": [
+            {
+              "label": "Total investment",
+              "value": "{{results.totalInvestment|money_compact}}"
+            },
+            {
+              "label": "Year-1 revenue",
+              "value": "{{results.revenue|money_compact}}"
+            },
+            {
+              "label": "Payback",
+              "value": "{{results.simplePaybackYears|years}}"
+            },
+            {
+              "label": "IRR",
+              "value": "{{results.irrPct|pct}}"
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "title": "The ask",
+          "text": "A \u00a3150,000 small-business loan over 7 years, with the balance from founder equity."
+        }
+      ]
+    },
+    {
+      "heading": "Financial plan",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Investment required"
+        },
+        {
+          "type": "breakdown_table",
+          "of": "capex"
+        },
+        {
+          "type": "heading",
+          "text": "Five-year projection"
+        },
+        {
+          "type": "projection_table"
+        },
+        {
+          "type": "chart",
+          "title": "Revenue and net profit by year",
+          "from": "results.projection",
+          "series": [
+            {
+              "field": "revenue",
+              "name": "Revenue"
+            },
+            {
+              "field": "netProfit",
+              "name": "Net profit"
+            }
+          ]
+        },
+        {
+          "type": "bullets",
+          "items": [
+            "Break-even revenue: {{results.breakEvenRevenue|money}} a year.",
+            "NPV at {{project.assumptions.discountRatePct|pct}}: {{results.npv|money}}."
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "Scenarios"
+        },
+        {
+          "type": "scenarios_table"
+        }
+      ]
+    },
+    {
+      "heading": "Appendix: assumptions register",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Staff"
+        },
+        {
+          "type": "inputs_table",
+          "category": "human-resources"
+        },
+        {
+          "type": "heading",
+          "text": "Revenue"
+        },
+        {
+          "type": "inputs_table",
+          "category": "revenue"
+        }
+      ]
+    }
+  ]
+}

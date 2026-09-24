@@ -1,0 +1,133 @@
+{
+  "company": "Corner Caf\u00e9",
+  "slides": [
+    {
+      "type": "title",
+      "title": "Corner Caf\u00e9",
+      "tagline": "Specialty coffee where Leeds commuters actually walk",
+      "footnote": "Seed loan request \u00b7 September 2026"
+    },
+    {
+      "type": "statement",
+      "kicker": "Problem",
+      "headline": "6,500 commuters pass the site every weekday, and the only coffee on the route is a station kiosk.",
+      "points": [
+        "Nearest specialty caf\u00e9 is a 9-minute detour",
+        "Chain options don't open until 7:30am",
+        "Reviews complain about queues and no seating"
+      ]
+    },
+    {
+      "type": "market",
+      "kicker": "Market",
+      "headline": "A \u00a34.9M local coffee market, of which we need 9%.",
+      "levels": [
+        {
+          "label": "TAM",
+          "value": "\u00a34.9M",
+          "detail": "Out-of-home coffee spend in the catchment"
+        },
+        {
+          "label": "SAM",
+          "value": "\u00a32.7M",
+          "detail": "Weekday mornings & lunch, takeaway + 30 seats"
+        },
+        {
+          "label": "SOM",
+          "value": "\u00a30.45M",
+          "detail": "300 drinks/day at capacity-limited throughput"
+        }
+      ],
+      "source": "Sources: census small-area data 2021; council footfall counter 2025; local menu scan Sept 2026."
+    },
+    {
+      "type": "benchmark",
+      "kicker": "Competition",
+      "headline": "No one on the route combines specialty coffee, food and a 7am opening.",
+      "highlight_row": "Us (planned)"
+    },
+    {
+      "type": "kpis",
+      "kicker": "The numbers",
+      "headline": "Profitable in Year 1, paid back in under three years.",
+      "items": [
+        {
+          "value": "{{results.revenue|money_compact}}",
+          "label": "Year-1 revenue"
+        },
+        {
+          "value": "{{results.profitMarginPct|pct}}",
+          "label": "Year-1 net margin"
+        },
+        {
+          "value": "{{results.simplePaybackYears|years}}",
+          "label": "Payback"
+        },
+        {
+          "value": "{{results.irrPct|pct}}",
+          "label": "IRR"
+        }
+      ],
+      "subtext": "All figures computed by Foundation's feasibility engine from the inputs in the appendix."
+    },
+    {
+      "type": "chart",
+      "kicker": "Projection",
+      "headline": "Net profit grows from {{results.projection.0.netProfit|money_compact}} to {{results.projection.last.netProfit|money_compact}} by Year 5.",
+      "chart": {
+        "from": "results.projection",
+        "series": [
+          {
+            "field": "revenue",
+            "name": "Revenue"
+          },
+          {
+            "field": "netProfit",
+            "name": "Net profit"
+          }
+        ]
+      },
+      "side_points": [
+        "Break-even at {{results.breakEvenRevenue|money_compact}} of annual revenue",
+        "NPV {{results.npv|money_compact}} at an 18% discount rate"
+      ]
+    },
+    {
+      "type": "scenarios",
+      "kicker": "Downside",
+      "headline": "Even the worst case pays back within the projection.",
+      "notes": "Worst case halves growth and adds 5 points to the discount rate."
+    },
+    {
+      "type": "ask",
+      "kicker": "The ask",
+      "headline": "\u00a3150k to open in spring 2027.",
+      "amount": "\u00a3150k",
+      "terms": "7-year small-business loan, with \u00a350k of founder equity alongside.",
+      "use_of_funds": [
+        {
+          "label": "Fit-out",
+          "pct": 38
+        },
+        {
+          "label": "Equipment & furniture",
+          "pct": 29
+        },
+        {
+          "label": "Working capital",
+          "pct": 22
+        },
+        {
+          "label": "Launch & pre-opening",
+          "pct": 11
+        }
+      ],
+      "milestones": "Lease signed by Dec 2026 \u00b7 Opening Mar 2027 \u00b7 Second site scoped for 2029"
+    },
+    {
+      "type": "closing",
+      "headline": "Thank you",
+      "contact": "founders@cornercafe.example \u00b7 Leeds"
+    }
+  ]
+}
