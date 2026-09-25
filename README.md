@@ -117,6 +117,10 @@ Good contributions also flow back into the Foundation app, for example as better
 categories and benchmark ranges. See [CONTRIBUTING.md](CONTRIBUTING.md) for the rules. The
 short version: every number needs a source you'd be comfortable showing a lender.
 
+This repository and the `skills/` folder in the Foundation app are kept in sync automatically
+in both directions, so a merged pull request here shows up there (as a reviewed PR, not a
+silent merge) without anyone copying files by hand.
+
 ## Tests
 
 ```
