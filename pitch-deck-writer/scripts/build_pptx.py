@@ -33,6 +33,7 @@ from pptx.util import Emu, Inches, Pt
 
 sys.path.insert(0, str(Path(__file__).parent))
 from foundation_facts import Facts, FactsError  # noqa: E402
+from writing_lint import lint_spec  # noqa: E402
 
 W, H = 13.333, 7.5  # inches, 16:9
 MARGIN = 0.7
@@ -446,7 +447,7 @@ def main() -> int:
         return 2
     out = Path(args.out)
     prs.save(str(out))
-    problems = verify(out) + deck.warnings
+    problems = verify(out) + deck.warnings + [f"style: {p}" for p in lint_spec(spec)]
     for p in problems:
         print(f"WARNING: {p}", file=sys.stderr)
     print(f"wrote {out} ({deck.n} slides)")

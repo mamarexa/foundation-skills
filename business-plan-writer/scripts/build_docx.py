@@ -31,6 +31,7 @@ from docx.shared import Cm, Pt, RGBColor
 
 sys.path.insert(0, str(Path(__file__).parent))
 from foundation_facts import Facts, FactsError  # noqa: E402
+from writing_lint import lint_spec  # noqa: E402
 
 DEFAULT_THEME = {
     "heading_font": "Georgia",
@@ -51,13 +52,37 @@ def rgb(hex_: str) -> RGBColor:
 
 
 class Builder:
-    def __init__(self, spec: dict, facts: Facts):
+    def __init__(self, spec: dict, facts: Facts, template: str | None = None):
         self.spec = spec
         self.facts = facts
         self.theme = {**DEFAULT_THEME, **spec.get("theme", {})}
-        self.doc = Document()
         self.figure_no = 0
-        self._setup_styles()
+        self.template = template
+        if template:
+            # The founder's own .docx: keep its styles, theme, page setup, headers and footers,
+            # and only replace the body. Our fonts and colours are not applied on top.
+            self.doc = Document(template)
+            body = self.doc.element.body
+            for el in list(body):
+                if el.tag != qn("w:sectPr"):
+                    body.remove(el)
+        else:
+            self.doc = Document()
+            self._setup_styles()
+
+    def styled(self, text: str | None, style: str):
+        """add_paragraph with a named style, falling back to Normal when a template lacks it."""
+        try:
+            self.doc.styles[style]
+        except KeyError:
+            p = self.doc.add_paragraph()
+            if text:
+                run = p.add_run(("• " if style == "List Bullet" else "") + text)
+                run.bold = style.startswith(("Heading", "Title"))
+            elif style == "List Bullet":
+                p.add_run("• ")
+            return p
+        return self.doc.add_paragraph(text, style=style) if text is not None else self.doc.add_paragraph(style=style)
 
     # --- setup ------------------------------------------------------------------------------
 
@@ -122,7 +147,7 @@ class Builder:
         if s.get("kicker"):
             p = self.doc.add_paragraph()
             self.add_runs(p, s["kicker"].upper(), size=9, color=t["muted"])
-        self.doc.add_paragraph(self.text(s["title"]), style="Title")
+        self.styled(self.text(s["title"]), "Title")
         if s.get("subtitle"):
             p = self.doc.add_paragraph()
             self.add_runs(p, s["subtitle"], size=13, color=t["muted"])
@@ -136,7 +161,7 @@ class Builder:
 
     def contents(self) -> None:
         self.page_break()
-        self.doc.add_paragraph("Contents", style="Heading 1")
+        self.styled("Contents", "Heading 1")
         for i, section in enumerate(self.spec["sections"], 1):
             p = self.doc.add_paragraph()
             self.add_runs(p, f"{i}.  {section['heading']}")
@@ -180,11 +205,11 @@ class Builder:
         self.add_runs(self.doc.add_paragraph(), b["text"])
 
     def b_heading(self, b: dict) -> None:
-        self.doc.add_paragraph(self.text(b["text"]), style="Heading 3" if b.get("level", 2) >= 3 else "Heading 2")
+        self.styled(self.text(b["text"]), "Heading 3" if b.get("level", 2) >= 3 else "Heading 2")
 
     def b_bullets(self, b: dict) -> None:
         for item in b["items"]:
-            p = self.doc.add_paragraph(style="List Number" if b.get("numbered") else "List Bullet")
+            p = self.styled(None, "List Number" if b.get("numbered") else "List Bullet")
             self.add_runs(p, item)
             p.paragraph_format.space_after = Pt(3)
 
@@ -284,10 +309,11 @@ class Builder:
             self.contents()
         for i, section in enumerate(self.spec["sections"], 1):
             self.page_break()
-            self.doc.add_paragraph(f"{i}. {self.text(section['heading'])}", style="Heading 1")
+            self.styled(f"{i}. {self.text(section['heading'])}", "Heading 1")
             for b in section.get("blocks", []):
                 self.block(b)
-        self.header_footer()
+        if not self.template:  # a template keeps its own header and footer
+            self.header_footer()
         return self.doc
 
 
@@ -389,17 +415,18 @@ def main() -> int:
     ap.add_argument("out")
     ap.add_argument("--facts", help="JSON with the Foundation engine's output (see foundation_facts.py)")
     ap.add_argument("--pdf", action="store_true", help="also export a PDF with LibreOffice, for visual QA")
+    ap.add_argument("--template", help="the founder's own .docx to build on: its styles, fonts, page setup, header and footer are kept")
     args = ap.parse_args()
 
     spec = json.loads(Path(args.spec).read_text(encoding="utf-8"))
     try:
-        doc = Builder(spec, Facts.load(args.facts)).build()
+        doc = Builder(spec, Facts.load(args.facts), template=args.template).build()
     except FactsError as e:
         print(f"ERROR (numbers): {e}", file=sys.stderr)
         return 2
     out = Path(args.out)
     doc.save(str(out))
-    problems = verify(out)
+    problems = verify(out) + [f"style: {p}" for p in lint_spec(spec)]
     for p in problems:
         print(f"WARNING: {p}", file=sys.stderr)
     print(f"wrote {out}")

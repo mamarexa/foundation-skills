@@ -168,6 +168,14 @@ every input from Step 3 with notes and tags. Then give the founder:
 - one line saying that importing the file into Foundation (Projects → Import) computes
   investment, profit, NPV, IRR, payback and break-even from these inputs.
 
+## Writing
+
+Everything this skill writes for the founder follows `references/writing-style.md`, which is
+based on Wikipedia's "Signs of AI writing" guide. This covers memos, reports, emails and the
+notes on rows. **No em dashes, no hype words, no unnamed authorities.** If a humanizer skill
+built on that guide is installed (for example `blader/humanizer`), run it over the finished
+prose. It may change wording only, never a number, name, date or source.
+
 ## Engine facts (so your inputs mean what you think)
 
 - Opex rows are Year-1 **monthly** run-rates; the engine annualises them (× 12).
@@ -189,3 +197,4 @@ every input from Step 3 with notes and tags. Then give the founder:
 - `references/category-catalog.md`: every category, its columns, and the business-type presets.
 - `references/benchmarks.md`: industry ratios for cross-checking, with sources.
 - `references/handoff-format.md`: the standalone `foundation-project.json` format.
+- `references/writing-style.md`: the no-AI-tells writing guide.

@@ -89,6 +89,11 @@ an equity investor.
 - **Consistency pass before rendering.** Check that the staff numbers, prices, market sizes,
   opening date and funding amount are the same in every section and match the project data.
 - Be honest about weaknesses. A lender trusts a plan that names its risks.
+- **Writing-style pass (required).** Follow `references/writing-style.md`, which is based on
+  Wikipedia's "Signs of AI writing" guide. **No em dashes.** If a humanizer skill built on that
+  guide is installed (for example `blader/humanizer`), run it over the prose now. It may
+  change wording only, never a number, name, date, source or `{{token}}`. The renderer's
+  style check catches the mechanical tells, and must end with no style warnings.
 
 ## Step 3: Render and QA
 
@@ -106,7 +111,27 @@ preinstalled in Claude's code-execution sandbox; elsewhere, `pip install python-
   PyMuPDF) and look at every page. Check for tables split badly, a chart that's hard to read,
   an orphaned heading or an empty page. Fix and re-render. Treat the first render as a draft.
 
-## Step 4: Deliver
+- **Founder's own template:** add `--template their-template.docx`. The plan is rebuilt inside
+  their document, keeping its styles, fonts, page setup, header and footer.
+
+## Step 4: Optional second step: advanced restyling with another tool
+
+The renderer's job is a correct, clean file. For brand templates, native editable charts,
+tracked changes or comments, hand the finished `.docx` to the document tool the founder's
+environment has, **as a second step**:
+
+- **Claude:** Anthropic's `docx` skill.
+- **ChatGPT / Codex:** OpenAI's document handling.
+- **Gemini:** Google Docs with Gemini.
+- **Microsoft 365:** Copilot in Word.
+- **Cursor and other agents:** `--template` or an open-source skill.
+
+The table and links are in `references/restyling.md`. Tell that tool to change **design
+only**. Afterwards run `python scripts/check_numbers.py business-plan.docx
+business-plan-restyled.docx`. If any number was lost, changed or added, don't deliver the
+restyled file.
+
+## Step 5: Deliver
 
 Give the founder the `.docx` file (and the PDF if produced). Include a short note listing:
 
@@ -119,6 +144,11 @@ Give the founder the `.docx` file (and the PDF if produced). Include a short not
 
 - `references/spec-format.md`: every block type, the token paths available in the facts file,
   and the formats.
+- `references/writing-style.md`: the no-AI-tells writing guide (Wikipedia's "Signs of AI
+  writing", no em dashes).
+- `references/restyling.md`: which tool to use for a second-step restyle in Claude, ChatGPT or
+  Codex, Gemini, Microsoft 365, Cursor, or anything else, and how to verify the numbers
+  survived.
 
 ## Sources
 

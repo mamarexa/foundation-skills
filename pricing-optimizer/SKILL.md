@@ -127,6 +127,14 @@ In standalone mode, produce the revised `revenue` rows (and any changed cost row
 `foundation-project.json` format described in the feasibility-analyst skill's
 `references/handoff-format.md`, along with the Step 3 reasoning, but without computed results.
 
+## Writing
+
+Everything this skill writes for the founder follows `references/writing-style.md`, which is
+based on Wikipedia's "Signs of AI writing" guide. This covers memos, reports, emails and the
+notes on rows. **No em dashes, no hype words, no unnamed authorities.** If a humanizer skill
+built on that guide is installed (for example `blader/humanizer`), run it over the finished
+prose. It may change wording only, never a number, name, date or source.
+
 ## Guardrails
 
 - Never recommend a price below the variable cost floor unless it is a deliberate, time-limited
@@ -144,3 +152,4 @@ In standalone mode, produce the revised `revenue` rows (and any changed cost row
   Gabor-Granger scripts, pocket price waterfall.
 - `references/playbooks.md`: pricing patterns by business type (food service, retail, SaaS,
   services, B2B/manufacturing, marketplaces).
+- `references/writing-style.md`: the no-AI-tells writing guide.

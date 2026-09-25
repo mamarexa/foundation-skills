@@ -30,10 +30,20 @@ def run(*args):
     return subprocess.run([sys.executable, *map(str, args)], capture_output=True, text=True)
 
 
+for script in ("foundation_facts.py", "writing_lint.py", "check_numbers.py"):
+    check(
+        f"{script} copies are identical",
+        filecmp.cmp(ROOT / "business-plan-writer/scripts" / script, ROOT / "pitch-deck-writer/scripts" / script, shallow=False),
+    )
+style_guides = sorted(ROOT.glob("*/references/writing-style.md"))
+check("every skill ships the writing-style guide", len(style_guides) == 5, str(style_guides))
+check("writing-style.md copies are identical", all(filecmp.cmp(style_guides[0], g, shallow=False) for g in style_guides))
 check(
-    "foundation_facts.py copies are identical",
-    filecmp.cmp(ROOT / "business-plan-writer/scripts/foundation_facts.py", ROOT / "pitch-deck-writer/scripts/foundation_facts.py", shallow=False),
+    "restyling.md copies are identical",
+    filecmp.cmp(ROOT / "business-plan-writer/references/restyling.md", ROOT / "pitch-deck-writer/references/restyling.md", shallow=False),
 )
+em_dash_docs = [str(p.relative_to(ROOT)) for p in ROOT.rglob("*.md") if p.name != "writing-style.md" and "—" in p.read_text()]
+check("no em dashes in the skills' own docs", not em_dash_docs, str(em_dash_docs))
 
 with tempfile.TemporaryDirectory() as tmp:
     tmp = Path(tmp)
@@ -56,5 +66,48 @@ with tempfile.TemporaryDirectory() as tmp:
 
     r = run(DOCX, FIX / "coffee-plan-spec.json", tmp / "nofacts.docx")
     check("engine tokens without a facts file stop the build", r.returncode == 2, r.stderr)
+
+    styled = json.loads((FIX / "coffee-plan-spec.json").read_text())
+    styled["sections"][0]["blocks"].append({"type": "paragraph", "text": "This is a pivotal, seamless opportunity — truly."})
+    (tmp / "styled.json").write_text(json.dumps(styled))
+    r = run(DOCX, tmp / "styled.json", tmp / "styled.docx", "--facts", FIX / "coffee-facts.json")
+    check("style check flags em dashes and hype words", r.returncode == 1 and "em dash" in r.stderr and "pivotal" in r.stderr, r.stderr)
+
+    CHECK = ROOT / "business-plan-writer" / "scripts" / "check_numbers.py"
+    r = run(CHECK, tmp / "plan.docx", tmp / "plan.docx")
+    check("check_numbers passes a file against itself", r.returncode == 0, r.stdout)
+    r = run(CHECK, tmp / "deck.pptx", tmp / "deck.pptx")
+    check("check_numbers passes a deck against itself", r.returncode == 0, r.stdout)
+
+    from docx import Document  # noqa: E402
+    d = Document(str(tmp / "plan.docx"))
+    for t in d.tables:
+        for row in t.rows:
+            for cell in row.cells:
+                if "£97,350" in cell.text:
+                    cell.paragraphs[0].runs[0].text = cell.paragraphs[0].runs[0].text.replace("£97,350", "£97,530")
+    d.save(str(tmp / "tampered.docx"))
+    r = run(CHECK, tmp / "plan.docx", tmp / "tampered.docx")
+    check("check_numbers catches a changed figure", r.returncode == 1 and "£97,350" in r.stdout and "£97,530" in r.stdout, r.stdout)
+
+    tpl = Document()
+    tpl.styles["Normal"].font.name = "Garamond"
+    tpl.sections[0].header.paragraphs[0].text = "ACME Ventures, confidential"
+    del_style = tpl.styles["List Bullet"]
+    del_style.element.getparent().remove(del_style.element)  # a template missing a style we use
+    tpl.add_paragraph("old template body text")
+    tpl.save(str(tmp / "tpl.docx"))
+    r = run(DOCX, FIX / "coffee-plan-spec.json", tmp / "templated.docx", "--facts", FIX / "coffee-facts.json", "--template", tmp / "tpl.docx")
+    out = Document(str(tmp / "templated.docx"))
+    body = "\n".join(p.text for p in out.paragraphs)
+    check(
+        "--template keeps the founder's styles and header and replaces the body",
+        r.returncode == 0
+        and out.styles["Normal"].font.name == "Garamond"
+        and out.sections[0].header.paragraphs[0].text == "ACME Ventures, confidential"
+        and "old template body text" not in body
+        and "Executive summary" in body,
+        r.stderr,
+    )
 
 sys.exit(1 if failures else 0)

@@ -157,6 +157,14 @@ In connected mode the sizing and the competitor grid also live in the project (M
 Competitor Benchmark steps), so the business-plan and pitch-deck skills can read them from
 there.
 
+## Writing
+
+Everything this skill writes for the founder follows `references/writing-style.md`, which is
+based on Wikipedia's "Signs of AI writing" guide. This covers memos, reports, emails and the
+notes on rows. **No em dashes, no hype words, no unnamed authorities.** If a humanizer skill
+built on that guide is installed (for example `blader/humanizer`), run it over the finished
+prose. It may change wording only, never a number, name, date or source.
+
 ## Guardrails
 
 - **Public information only.** Use websites, published prices, menus, public reviews, filings
@@ -175,3 +183,4 @@ there.
   SaaS and a manufacturer, including the formulas and the cross-check.
 - `references/outreach-kit.md`: the founder's outreach kit: approaches, rules, email and call
   templates, and the contact-table format.
+- `references/writing-style.md`: the no-AI-tells writing guide.

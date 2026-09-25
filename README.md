@@ -30,6 +30,19 @@ Every skill works in both modes. See [CONVENTIONS.md](CONVENTIONS.md) for the ex
   `foundation-project.json` file that you can import into Foundation to get the computed
   results. It never makes up NPV, IRR, payback or break-even figures.
 
+## Writing quality and second-step tools
+
+- Every skill that writes prose follows `references/writing-style.md`, which is based on
+  [Wikipedia: Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing).
+  No em dashes, no hype, no unnamed authorities. It uses a public humanizer skill such as
+  [blader/humanizer](https://github.com/blader/humanizer) as a final pass when one is
+  installed.
+- The Word and PowerPoint skills build correct files themselves. For brand templates, native
+  charts or tracked changes, they hand the file to the environment's own document tools as a
+  second step: Anthropic's skills in Claude, OpenAI's in ChatGPT/Codex, Gemini in Google
+  Docs/Slides, Copilot in Microsoft 365, or open-source skills elsewhere.
+  `scripts/check_numbers.py` confirms no number changed along the way.
+
 ## Installing
 
 **Claude Code:** copy a skill folder into `~/.claude/skills/` (every project) or into

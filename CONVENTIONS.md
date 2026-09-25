@@ -71,3 +71,18 @@ inputs, and the engine computes the results.
 
 Write like a feasibility consultant writing for a client who is also a lender's audience: plain,
 specific and conservative. No hype words. Flag weak points yourself before an investor does.
+
+Every skill that writes prose ships `references/writing-style.md`, which is based on
+Wikipedia's "Signs of AI writing" guide. **No em dashes.** If a public humanizer skill built on
+that guide is installed (for example `blader/humanizer`), run it as the final pass, for
+wording only: it must never change numbers, names, dates, sources or `{{tokens}}`. All copies
+of `writing-style.md` are identical, and a test checks it.
+
+## 8. Second-step tools for files
+
+The business-plan and pitch-deck renderers produce correct files. Advanced restyling
+(templates, native charts, tracked changes) is a second step done with whatever the
+environment has: Anthropic's `docx`/`pptx` skills in Claude, OpenAI's in ChatGPT/Codex, Google
+Docs/Slides with Gemini, Copilot in Microsoft 365, or an open-source skill elsewhere (see
+`references/restyling.md`). The second step changes design only. `scripts/check_numbers.py`
+must pass between the original and the restyled file before the restyled file is delivered.
