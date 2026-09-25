@@ -237,5 +237,24 @@
         ]
       }
     ]
+  },
+  "marketSizing": {
+    "customerUnit": "Adults living or commuting within 10 minutes' walk",
+    "geography": "Central Leeds",
+    "tam": {
+      "value": 4950000,
+      "basis": "Out-of-home coffee spend in the catchment",
+      "source": "Census 2021; national coffee survey"
+    },
+    "sam": {
+      "value": 2700000,
+      "basis": "Weekday mornings & lunch, takeaway + 30 seats",
+      "source": "Own estimate"
+    },
+    "som": {
+      "value": 450000,
+      "basis": "300 drinks/day at capacity-limited throughput",
+      "source": "Operating plan"
+    }
   }
 }

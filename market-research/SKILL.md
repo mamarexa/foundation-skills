@@ -1,6 +1,6 @@
 ---
 name: market-research
-description: Market sizing (TAM, SAM, SOM) and competitor benchmarking for a new venture, built from sourced, checkable data. It counts customers bottom-up and cross-checks with a top-down estimate, profiles the competitors from their public pricing, features and reviews, fills a competitors × features benchmark grid, and checks whether the business's revenue plan is realistic against the market it can actually reach. Use when someone asks "how big is my market", "TAM SAM SOM", "who are my competitors", "competitor analysis", "benchmark my competitors", "what do competitors charge", "market research for my business plan or pitch deck", or "is my revenue forecast realistic". Works with a connected Foundation MCP server (writes the competitor benchmark into the project) or standalone.
+description: Market sizing (TAM, SAM, SOM) and competitor benchmarking for a new venture, built from sourced, checkable data. It counts customers bottom-up and cross-checks with a top-down estimate, profiles the competitors from their public pricing, features and reviews, fills a competitors × features benchmark grid, and checks whether the business's revenue plan is realistic against the market it can actually reach. Use when someone asks "how big is my market", "TAM SAM SOM", "who are my competitors", "competitor analysis", "benchmark my competitors", "what do competitors charge", "market research for my business plan or pitch deck", or "is my revenue forecast realistic". When prices or terms aren't public, it prepares an outreach kit for the founder: a table of competitors' public contact details, honest email and call templates, and the rules for using them. The agent never contacts anyone itself. Works with a connected Foundation MCP server (writes the market size and the competitor benchmark into the project) or standalone.
 ---
 
 # Market Research
@@ -15,7 +15,8 @@ Your job is to replace both with numbers and facts the founder can defend line b
 
 ## Step 0: Mode
 
-Look for the Foundation MCP tools (`get_project`, `update_competitor_benchmark`; a client may
+Look for the Foundation MCP tools (`get_project`, `update_market_sizing`,
+`update_competitor_benchmark`; a client may
 add a prefix).
 
 - **Connected:** `list_projects`, confirm the project, then `get_project`. It gives the business
@@ -72,6 +73,13 @@ Label every derived figure with its formula, for example
   market. Size them from footfall, population within a radius and visit frequency.
 - Keep **market value** (money spent) separate from **market volume** (units, customers).
 
+**Save it.**
+
+- Connected: call `update_market_sizing` with `customerUnit`, `geography`, and for each of
+  `tam`, `sam` and `som` an annual `value` (in the project's currency), a `basis` (the formula
+  in words) and a `source`. The app's Market Size step shows it and flags levels that don't nest.
+- Standalone: put the same object in `marketSizing` in `foundation-project.json`.
+
 ## Step 3: Competitors
 
 1. **Identify** 5–10 competitors across three rings: direct (same offer, same customers),
@@ -99,6 +107,30 @@ Label every derived figure with its formula, for example
 5. **Price reference table** (in the report): each competitor's comparable price point,
    normalized to the same unit (per month, per cover, per kg), with source and date. The
    pricing-optimizer skill uses this table.
+6. **Gaps the public sources can't fill** (prices not published, service terms, lead times):
+   prepare the **founder's outreach kit** (Step 3b). Don't guess.
+
+## Step 3b: Founder's outreach kit (the founder makes the contact, never you)
+
+When important facts aren't public, give the founder what they need to find them out
+themselves, following `references/outreach-kit.md`:
+
+1. **Contact table:** for each competitor, the **business's** public contact channels only:
+   website contact page, general or sales email, main phone number, booking or quote form,
+   opening hours. Include the source URL. No personal emails or phone numbers of individual
+   employees, and nothing scraped from behind a login.
+2. **What to find out:** per competitor, the specific open questions (for example "price for
+   20 seats, annual billing" or "minimum order and delivery charge").
+3. **Drafts:** short, honest email templates and call scripts for the approaches in the
+   reference file (a genuine enquiry, open market research, or a supplier/partner enquiry),
+   with the questions filled in. Mark the parts the founder must adapt to be true for them.
+4. **The rules**, in plain words: keep contacts short, don't place fake orders or book fake
+   demos, don't sign anything under a false identity, don't ask for confidential information,
+   and check call-recording consent rules before recording.
+
+Put the kit in a separate file (`outreach-kit.md`) so it's easy to use. Once the founder
+brings answers back, add them to the benchmark and price table with the source
+"founder enquiry, <date>".
 
 ## Step 4: Reality-check the plan (connected)
 
@@ -121,16 +153,19 @@ Write `market-research.md` (or the format the founder wants) with these sections
 4. **Implications for the plan:** from Step 4, and which positioning the evidence supports.
 5. **Sources:** every URL with the date it was accessed.
 
-Foundation has no dedicated field for TAM/SAM/SOM yet. The competitor grid lives in the
-project, and the sizing lives in this report.
+In connected mode the sizing and the competitor grid also live in the project (Market Size and
+Competitor Benchmark steps), so the business-plan and pitch-deck skills can read them from
+there.
 
 ## Guardrails
 
 - **Public information only.** Use websites, published prices, menus, public reviews, filings
   and marketplace listings. Don't bypass logins or paywalls, or scrape against a site's terms.
-- **You never contact competitors** (no emails, calls, chats or quote-request forms) and never
-  pose as a customer. If a price isn't public, write "not published" and suggest the founder
-  gets it the ordinary way, for example as a genuine enquiry they make themselves.
+- **You never contact competitors yourself** (no emails, calls, chats or form submissions), and
+  you never send the outreach drafts on the founder's behalf. You prepare the kit (Step 3b);
+  the founder decides whether and how to use it, one enquiry at a time.
+- No bulk or automated outreach: the kit is for a handful of individual contacts, not a
+  campaign.
 - Never fill a gap with a guessed competitor fact. An empty cell is better than a wrong check.
 - Name companies factually. No disparaging claims you can't source.
 
@@ -138,3 +173,5 @@ project, and the sizing lives in this report.
 
 - `references/sizing-worked-examples.md`: worked bottom-up sizing for a local business, a B2B
   SaaS and a manufacturer, including the formulas and the cross-check.
+- `references/outreach-kit.md`: the founder's outreach kit: approaches, rules, email and call
+  templates, and the contact-table format.

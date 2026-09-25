@@ -24,18 +24,18 @@
       "levels": [
         {
           "label": "TAM",
-          "value": "\u00a34.9M",
-          "detail": "Out-of-home coffee spend in the catchment"
+          "value": "{{project.marketSizing.tam.value|money_compact}}",
+          "detail": "{{project.marketSizing.tam.basis|raw}}"
         },
         {
           "label": "SAM",
-          "value": "\u00a32.7M",
-          "detail": "Weekday mornings & lunch, takeaway + 30 seats"
+          "value": "{{project.marketSizing.sam.value|money_compact}}",
+          "detail": "{{project.marketSizing.sam.basis|raw}}"
         },
         {
           "label": "SOM",
-          "value": "\u00a30.45M",
-          "detail": "300 drinks/day at capacity-limited throughput"
+          "value": "{{project.marketSizing.som.value|money_compact}}",
+          "detail": "{{project.marketSizing.som.basis|raw}}"
         }
       ],
       "source": "Sources: census small-area data 2021; council footfall counter 2025; local menu scan Sept 2026."

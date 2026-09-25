@@ -57,6 +57,7 @@ indexes and `last`.
 | `results.saasMetrics.ltvToCac`, `.cacPaybackMonths`, `.runwayMonths` | subscription businesses |
 | `scenarios.worst.npv`, `scenarios.best.irrPct` | scenarios |
 | `project.assumptions.discountRatePct`, `project.assumptions.taxRatePct` | assumptions used |
+| `project.marketSizing.tam.value` (and `.basis`, `.source`; same for `sam`, `som`) | the Market Size step's figures, so the plan matches the app |
 
 **Formats:** `money` (£1,234,567), `money_compact` (£1.2M, £450k), `pct` (28.9%), `years`
 (2.8 years), `months`, `int`, `number`, `ratio` (3.2×), `raw`. A null value renders as "n/a",

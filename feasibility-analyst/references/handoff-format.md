@@ -71,6 +71,15 @@ anything left out:
 
   "projectDescription": "The founder's own description, verbatim.",
 
+  // Optional: market size, annual values in the project's currency.
+  "marketSizing": {
+    "customerUnit": "Adults living or commuting within 10 minutes' walk",
+    "geography": "Central Leeds",
+    "tam": { "value": 4950000, "basis": "18,000 × 60% × 2.1/week × 52 × £4.20", "source": "Census 2021; national coffee survey 2025" },
+    "sam": { "value": 2700000, "basis": "Weekday mornings & lunch, takeaway + 30 seats", "source": "Own estimate from TAM" },
+    "som": { "value": 450000, "basis": "Capacity-limited: 300 drinks/day plus food", "source": "Operating plan" }
+  },
+
   // Optional: competitors (rows) × features (columns). "has" lists feature ids.
   "competitorBenchmark": {
     "features": [{ "id": "f1", "name": "Oat milk at no extra charge" }],
