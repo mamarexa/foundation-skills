@@ -91,6 +91,9 @@ The Word and PowerPoint skills need Python with `python-docx`, `python-pptx` and
 3. Ask your agent for a feasibility study. It will find the Foundation tools and work on your
    real project, and the numbers will match what you see in the app.
 
+Step-by-step setup for Claude, ChatGPT, Codex, Cursor, Gemini CLI and VS Code is in the
+[Foundation docs](https://getfndtn.com/docs/connect-your-ai).
+
 ## Try it
 
 > "I want to open a specialty coffee shop near Leeds station, about 30 seats, opening next
