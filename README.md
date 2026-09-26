@@ -5,6 +5,14 @@ competitors, build the financial study, tune the pricing, then write the busines
 the pitch deck. They run in your own AI agent (Claude, Codex, Gemini CLI, Cursor and others).
 They are built by the team behind [Foundation](https://getfndtn.com).
 
+<p align="center">
+  <a href="https://getfndtn.com/video/foundation-film.mp4">
+    <img src="https://getfndtn.com/video/foundation-film-poster.jpg" alt="Watch: Foundation in 48 seconds" width="720">
+  </a>
+  <br>
+  <sub>▶ Foundation in 48 seconds — a sample café project from its costs to its business plan, and an AI assistant testing it.</sub>
+</p>
+
 ## Why this exists
 
 Ask a general AI assistant whether your business idea works and it will write you something
