@@ -10,7 +10,7 @@ They are built by the team behind [Foundation](https://getfndtn.com).
     <img src="https://getfndtn.com/video/foundation-film-poster.jpg" alt="Watch: Foundation in 48 seconds" width="720">
   </a>
   <br>
-  <sub>▶ Foundation in 48 seconds — a sample café project from its costs to its business plan, and an AI assistant testing it.</sub>
+  <sub>▶ Foundation in 48 seconds: a sample café project from its costs to its business plan, and an AI assistant testing it.</sub>
 </p>
 
 ## Why this exists
